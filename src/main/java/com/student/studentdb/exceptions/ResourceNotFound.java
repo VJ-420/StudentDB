@@ -1,4 +1,4 @@
-package com.student.studentdb.Exceptions;
+package com.student.studentdb.exceptions;
 
 public class ResourceNotFound extends RuntimeException{
 

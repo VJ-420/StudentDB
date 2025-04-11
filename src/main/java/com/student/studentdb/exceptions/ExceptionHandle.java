@@ -1,4 +1,4 @@
-package com.student.studentdb.Exceptions;
+package com.student.studentdb.exceptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

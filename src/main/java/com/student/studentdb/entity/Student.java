@@ -10,15 +10,25 @@ public class Student {
     private String name;
     private LocalDate dob;
     private LocalDate joinDate;
+    private String password;
 
     public Student(){
     }
 
-    public Student(int id, String name, LocalDate dob, LocalDate joinDate) {
+    public Student(int id, String name, LocalDate dob, LocalDate joinDate , String password) {
         this.id = id;
         this.name = name;
         this.dob = dob;
         this.joinDate = joinDate;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setId(int id) {

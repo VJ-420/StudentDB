@@ -1,15 +1,14 @@
 package com.student.studentdb.service;
 
-import com.student.studentdb.Repo.StudentRepo;
+import com.student.studentdb.repo.StudentRepo;
 import com.student.studentdb.entity.Student;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-@Component
-public class Service implements StudentService {
+@Service
+public class Servicecc implements StudentService {
     @Autowired
     private StudentRepo StudentRepo;
 
@@ -38,7 +37,11 @@ public class Service implements StudentService {
         this.StudentRepo.save(student);
         return student;
     }
-
+    @Override
+    public Student getStudentByName(String Username){
+        Student student = this.StudentRepo.getStudentByName(Username);
+        return student;
+    }
 
 
 

@@ -1,8 +1,8 @@
 package com.student.studentdb.controller;
-import com.student.studentdb.Exceptions.ResourceNotFound;
-import com.student.studentdb.Exceptions.UnableToAdd;
+import com.student.studentdb.exceptions.ResourceNotFound;
+import com.student.studentdb.exceptions.UnableToAdd;
 import com.student.studentdb.entity.Student;
-import com.student.studentdb.service.Service;
+import com.student.studentdb.service.Servicecc;
 import com.student.studentdb.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +15,8 @@ public class StudentController {
     @Autowired
     private final StudentService service;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
-    public StudentController(Service service) {
-        this.service = service;
+    public StudentController(Servicecc servicecc) {
+        this.service = servicecc;
     }
 
     @GetMapping("/student")
@@ -32,6 +32,17 @@ public class StudentController {
     @GetMapping("/student/{id}")
     public Student getStudentByid(@PathVariable("id") int id ){
         Student s= this.service.getStudentById(id);
+        if(s==null){
+            throw new ResourceNotFound("No Data Present");
+
+        }
+        logger.info("Student data given");
+        return s;
+    }
+
+    @GetMapping("/student/{name}")
+    public Student getStudentByid(@PathVariable("name") String name ){
+        Student s= this.service.getStudentByName(name);
         if(s==null){
             throw new ResourceNotFound("No Data Present");
 
