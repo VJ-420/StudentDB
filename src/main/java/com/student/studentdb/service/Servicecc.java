@@ -3,6 +3,7 @@ package com.student.studentdb.service;
 import com.student.studentdb.repo.StudentRepo;
 import com.student.studentdb.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public class Servicecc implements StudentService {
     @Autowired
     private StudentRepo StudentRepo;
+
+
 
     @Override
     public List<Student> getAllStudents(){
@@ -25,7 +28,7 @@ public class Servicecc implements StudentService {
     @Override
     public Student addStudent(Student student){
         Student s= this.StudentRepo.save(student);
-        return s;
+        return student;
     }
     @Override
     public void deleteStudent(int id){
@@ -42,13 +45,4 @@ public class Servicecc implements StudentService {
         Student student = this.StudentRepo.getStudentByName(Username);
         return student;
     }
-
-
-
-
-
-
-
-
-
 }

@@ -7,6 +7,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true)
     private String name;
     private LocalDate dob;
     private LocalDate joinDate;
